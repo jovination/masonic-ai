@@ -104,7 +104,7 @@ export default function CodeGenerator() {
             <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
               <Code2 className="w-6 h-6 text-white" />
             </div>
-            <span className="text-sm font-medium">Mason AI</span>
+            <span className="text-sm font-medium">Masonic AI</span>
           </div>
           <SettingsModal />
         </div>
@@ -123,6 +123,9 @@ export default function CodeGenerator() {
                 Please add your Hugging Face API key in settings to enable code generation
               </div>
             )}
+
+        {isLoading && <LoadingAnimation />}
+
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
               {QUICK_ACTIONS.map((action, i) => (
@@ -189,7 +192,6 @@ export default function CodeGenerator() {
                 </div>
               </div>
             ))}
-            {isLoading && <LoadingAnimation />}
           </div>
         </Card>
       </div>
