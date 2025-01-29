@@ -6,7 +6,7 @@ interface TypingAnimationProps {
   speed?: number
 }
 
-export const TypingAnimation: React.FC<TypingAnimationProps> = ({ text, speed = 50 }) => {
+export const TypingAnimation: React.FC<TypingAnimationProps> = ({ text, speed = 15 }) => {
   const [displayedText, setDisplayedText] = useState("")
 
   useEffect(() => {
@@ -23,6 +23,11 @@ export const TypingAnimation: React.FC<TypingAnimationProps> = ({ text, speed = 
     return () => clearInterval(timer)
   }, [text, speed])
 
-  return <pre className="whitespace-pre-wrap font-mono text-sm">{displayedText}</pre>
+  return (
+    <div className="font-mono text-sm">
+      {displayedText}
+      <span className="inline-block w-1 h-4 ml-1 bg-blue-500 animate-blink"></span>
+    </div>
+  )
 }
 
